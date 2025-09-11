@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maslow's Hierarchy of Needs</title>
+    <link rel="stylesheet" href="section1.css">
+       
+</head>
+<body>
+    <button class="close-btn">×</button>
+    
+    <div class="container">
+        <div class="header">
+            <!-- Pyramid background container -->
+            <div class="pyramid-bg"></div>
+            
+            <h1>masiow's<br>hierarchy of needs</h1>
+            <p>Masiow's Hierarchy of Needs shows how we grow from survival to our highest potential. It starts with food, water, rest & safety, then moves to love, belonging & esteem, where we build connection, respect & self-worth.</p>
+        </div>
+        
+        <div>
+            <h2>how it works?</h2>
+            <div class="accordion">
+                <button class="accordion-item">Physiological Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Basic survival needs: air, water, food, shelter, sleep, clothing, reproduction.</p>
+                        <div class="selection-group">
+                            <label for="physiological-select">Select your physiological needs:</label>
+                            <select id="physiological-select">
+                                <option value="">-- Choose --</option>
+                                <option value="water">Water</option>
+                                <option value="food">Food</option>
+                                <option value="shelter">Shelter</option>
+                                <option value="sleep">Sleep</option>
+                                <option value="air">Air</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="physiological-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="accordion-item">Safety Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Personal security, employment, resources, health, property.</p>
+                        <div class="selection-group">
+                            <label for="safety-select">Select your safety needs:</label>
+                            <select id="safety-select">
+                                <option value="">-- Choose --</option>
+                                <option value="security">Personal Security</option>
+                                <option value="employment">Employment</option>
+                                <option value="health">Health</option>
+                                <option value="property">Property</option>
+                                <option value="resources">Resources</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="safety-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="accordion-item">Belonging and Love Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Friendship, intimacy, family, sense of connection.</p>
+                        <div class="selection-group">
+                            <label for="belonging-select">Select your belonging needs:</label>
+                            <select id="belonging-select">
+                                <option value="">-- Choose --</option>
+                                <option value="friendship">Friendship</option>
+                                <option value="intimacy">Intimacy</option>
+                                <option value="family">Family</option>
+                                <option value="connection">Connection</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="belonging-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="accordion-item">Esteem Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Respect, self-esteem, status, recognition, strength, freedom.</p>
+                        <div class="selection-group">
+                            <label for="esteem-select">Select your esteem needs:</label>
+                            <select id="esteem-select">
+                                <option value="">-- Choose --</option>
+                                <option value="respect">Respect</option>
+                                <option value="self-esteem">Self-Esteem</option>
+                                <option value="status">Status</option>
+                                <option value="recognition">Recognition</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="esteem-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="accordion-item">Cognitive Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Knowledge, understanding, curiosity, exploration, meaning.</p>
+                        <div class="selection-group">
+                            <label for="cognitive-select">Select your cognitive needs:</label>
+                            <select id="cognitive-select">
+                                <option value="">-- Choose --</option>
+                                <option value="knowledge">Knowledge</option>
+                                <option value="understanding">Understanding</option>
+                                <option value="curiosity">Curiosity</option>
+                                <option value="exploration">Exploration</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="cognitive-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="accordion-item">Aesthetic Needs</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <p>Appreciation and search for beauty, balance, form, etc.</p>
+                        <div class="selection-group">
+                            <label for="aesthetic-select">Select your aesthetic needs:</label>
+                            <select id="aesthetic-select">
+                                <option value="">-- Choose --</option>
+                                <option value="beauty">Beauty</option>
+                                <option value="balance">Balance</option>
+                                <option value="form">Form</option>
+                                <option value="art">Art</option>
+                            </select>
+                        </div>
+                        <div class="selected-items" id="aesthetic-selected">
+                            <!-- Selected items will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Added ID to the continue button -->
+        <button class="continue-btn" id="continueButton">
+            continue
+            <span class="arrow">→</span>
+        </button>
+    </div>
+
+    <script>
+        // Add event listener to the continue button
+        document.getElementById('continueButton').addEventListener('click', function() {
+            // Save selections to localStorage
+            localStorage.setItem('maslowSelections', JSON.stringify(userSelections));
+            
+            // Navigate to the next page
+            window.location.href = './section02.html'; // Change this to your desired URL
+        });
+    
+        // Store user selections
+        const userSelections = {
+            physiological: [],
+            safety: [],
+            belonging: [],
+            esteem: [],
+            cognitive: [],
+            aesthetic: []
+        };
+
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        // Initialize all panels as closed
+        document.querySelectorAll('.panel').forEach(panel => {
+            panel.style.maxHeight = null;
+        });
+        
+        // Add click event to each accordion item
+        accordionItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Toggle active class
+                this.classList.toggle('active');
+                const panel = this.nextElementSibling;
+                
+                // Close all other panels
+                document.querySelectorAll('.panel').forEach(otherPanel => {
+                    if (otherPanel !== panel) {
+                        otherPanel.style.maxHeight = null;
+                        otherPanel.previousElementSibling.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current panel
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Selection functionality
+        function setupSelection(selectId, category) {
+            const selectElement = document.getElementById(selectId);
+            const selectedContainer = document.getElementById(`${category}-selected`);
+            
+            selectElement.addEventListener('change', function() {
+                if (this.value) {
+                    // Add to user selections if not already selected
+                    if (!userSelections[category].includes(this.value)) {
+                        userSelections[category].push(this.value);
+                        
+                        // Create a visual tag for the selection
+                        const tag = document.createElement('div');
+                        tag.className = 'selected-item';
+                        tag.textContent = this.options[this.selectedIndex].text;
+                        tag.dataset.value = this.value;
+                        
+                        // Add remove button
+                        const removeBtn = document.createElement('span');
+                        removeBtn.textContent = ' ×';
+                        removeBtn.style.cursor = 'pointer';
+                        removeBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const value = tag.dataset.value;
+                            userSelections[category] = userSelections[category].filter(item => item !== value);
+                            tag.remove();
+                        });
+                        
+                        tag.appendChild(removeBtn);
+                        selectedContainer.appendChild(tag);
+                    }
+                    
+                    // Reset the select
+                    this.value = '';
+                }
+            });
+        }
+
+        // Set up all selection dropdowns
+        setupSelection('physiological-select', 'physiological');
+        setupSelection('safety-select', 'safety');
+        setupSelection('belonging-select', 'belonging');
+        setupSelection('esteem-select', 'esteem');
+        setupSelection('cognitive-select', 'cognitive');
+        setupSelection('aesthetic-select', 'aesthetic');
+
+        // Close button functionality
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            // Close the window or navigate back
+            window.close(); // or history.back() to go back
+        });
+
+        // Load saved selections on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedSelections = localStorage.getItem('maslowSelections');
+            if (savedSelections) {
+                const parsed = JSON.parse(savedSelections);
+                
+                // Populate each category
+                for (const category in parsed) {
+                    if (parsed.hasOwnProperty(category)) {
+                        userSelections[category] = parsed[category];
+                        
+                        // Create visual tags for each selection
+                        parsed[category].forEach(value => {
+                            const selectId = `${category}-select`;
+                            const selectElement = document.getElementById(selectId);
+                            const option = selectElement.querySelector(`option[value="${value}"]`);
+                            
+                            if (option) {
+                                const selectedContainer = document.getElementById(`${category}-selected`);
+                                const tag = document.createElement('div');
+                                tag.className = 'selected-item';
+                                tag.textContent = option.text;
+                                tag.dataset.value = value;
+                                
+                                // Add remove button
+                                const removeBtn = document.createElement('span');
+                                removeBtn.textContent = ' ×';
+                                removeBtn.style.cursor = 'pointer';
+                                removeBtn.addEventListener('click', function(e) {
+                                    e.stopPropagation();
+                                    userSelections[category] = userSelections[category].filter(item => item !== value);
+                                    tag.remove();
+                                });
+                                
+                                tag.appendChild(removeBtn);
+                                selectedContainer.appendChild(tag);
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

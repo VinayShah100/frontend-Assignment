@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Shapes Balance</title>
+  <link rel="stylesheet" href="sape.css">
+</head>
+<body>
+
+  <!-- Close Button -->
+  <button class="close-btn">&times;</button>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Title -->
+    <h1 class="title">what shapes<br>balance.</h1>
+
+    <!-- Options Section -->
+    <div class="options">
+      <div class="option">
+        <img src="./img/hierarchy.png" alt="Maslow's hierarchy">
+        <p>maslow’s hierarchy<br>of needs</p>
+      </div>
+      <div class="option">
+        <img src="./img/staire.png" alt="The Cantril Ladder">
+        <p>the cantril ladder</p>
+      </div>
+    </div>
+
+    <!-- Continue Button -->
+    <button class="continue-btn" id="continueButton">
+      continue
+      <span class="arrow">➜</span>
+    </button>
+
+  </div>
+
+  <script>
+    // Add event listener to the continue button
+    document.getElementById('continueButton').addEventListener('click', function() {
+      // Navigate to the next page
+      window.location.href = './section1.html'; // Change this to your desired URL
+    });
+    
+    // Optional: Add functionality to the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      // Close the window or navigate back
+      window.close(); // or history.back() to go back
+    });
+  </script>
+</body>
+</html>

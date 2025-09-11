@@ -1,0 +1,263 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #242323;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ==== CLOSE BUTTON ==== */
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    z-index: 20;
+}
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==== CONTAINER ==== */
+.container {
+    max-width: 420px;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==== HEADER / PYRAMID BACKGROUND ==== */
+.header {
+    text-align: left;
+    position: relative;
+    padding: 8px 12px;
+}
+
+/* Pyramid background positioned on the right */
+.pyramid-bg {
+    position: absolute;
+    top: -40px;
+    right: -120px;
+    width: 300px;
+    height: 300px;
+    background-image: url('./img/black-hire01.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* header text stays on top */
+.header h1,
+.header p {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    line-height: 1.15;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+    color: #ddd;
+    margin: 0;
+}
+
+/* ==== ACCORDION ==== */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Wrap accordion button + panel in a white border */
+.accordion-item,
+.panel {
+    border: 1px solid #fff;
+    background-color: #1a1a1a;
+}
+
+/* Accordion button */
+.accordion-item {
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    text-align: left;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+.accordion-item:hover {
+    background-color: #222;
+}
+
+.accordion-item::after {
+    content: "▼";
+    font-size: 0.7rem;
+    position: absolute;
+    right: 12px;
+    transition: transform 0.2s ease;
+}
+
+.accordion-item.active::after {
+    transform: rotate(180deg);
+}
+
+/* Accordion panel */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-top: none; /* remove double border */
+    border-radius: 0 0 6px 6px;
+    padding: 0 12px;
+}
+
+.panel-content {
+    padding: 12px 0;
+}
+
+.panel p {
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    color: #ccc;
+}
+
+/* ==== SELECTION COMPONENTS ==== */
+.selection-group {
+    margin: 12px 0;
+    padding: 10px;
+    background-color: #1a1a1a; /* dark background only */
+    border-radius: 6px;
+}
+
+.selection-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.selection-group select {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;   /* subtle dark border */
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.selection-group select:focus {
+    outline: none;
+    border-color: #666;
+}
+
+/* Selected items box */
+.selected-items {
+    margin-top: 12px;
+    padding: 8px;
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.selected-item {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* ==== CONTINUE BUTTON ==== */
+.continue-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    gap: 8px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+    box-shadow:
+        inset 8px 0px 12px rgba(255, 215, 92, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 8px 0px 16px rgba(255, 215, 92, 0.6),
+        0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.continue-btn:hover .arrow {
+    transform: translateX(3px);
+}
+
+/* ==== Responsive tweak ==== */
+@media (max-width: 500px) {
+    .pyramid-bg {
+        width: 260px;
+        height: 260px;
+        top: -20px;
+        right: -80px;
+        opacity: 0.12;
+    }
+}

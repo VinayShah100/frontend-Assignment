@@ -1,0 +1,94 @@
+:root {
+  --bg: #111;
+  --beam: #e9e6d6;
+  --ball: #b6eaff;
+  --text: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+  color: var(--text);
+}
+
+.loader {
+  text-align: center;
+}
+
+.seesaw {
+  position: relative;
+  width: 260px;
+  height: 120px;
+  margin: 0 auto 20px;
+}
+
+/* Fulcrum trapezoid outline */
+.fulcrum {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6px;
+  width: 60px;
+  height: 40px;
+  border: 3px solid var(--beam);
+  background: transparent;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+
+/* Beam wrapper rotates around the center */
+.beam-wrap {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform-origin: center center;
+  animation: tilt 2s infinite ease-in-out;
+}
+
+/* The horizontal beam */
+.beam {
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: var(--beam);
+}
+
+/* Ball rolling on top */
+.ball {
+  position: absolute;
+  top: -10px; /* sits above the beam */
+  left: 10%;
+  width: 18px;
+  height: 18px;
+  background: var(--ball);
+  border-radius: 50%;
+  animation: roll 2s infinite ease-in-out;
+}
+
+/* Text styling */
+.text {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes tilt {
+  0% { transform: rotate(8deg); }
+  50% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+@keyframes roll {
+  0%   { left: 10%; transform: rotate(0deg); }
+  50%  { left: 75%; transform: rotate(360deg); }
+  100% { left: 10%; transform: rotate(720deg); }
+}
