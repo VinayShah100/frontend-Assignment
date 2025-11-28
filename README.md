@@ -1410,14 +1410,35 @@ All defects are documented using a standardized bug-reporting structure for cons
 
 ---
 
-## 📊 Bug Summary Table
+## 🐞 Bug Count Summary by Module (Sales Analytics)
 
-| Bug ID | Title                                                    | Severity | Status |
-|--------|----------------------------------------------------------|----------|--------|
-| SA-SKU-001 | Custom Date Range Not Working for Export              | High     | Open   |
-| SA-SKU-002 | Total Quantity Sold Input Fields Overflow UI Panel    | Medium   | Open   |
+| Module                                   | Bug Count |
+|------------------------------------------|-----------|
+| SKU Performance                          | 2 Bugs    |
+| Store Performance                        | 3 Bugs    |
+| Staff Performance                        | 3 Bugs    |
+| Transaction History                      | 2 Bugs    |
+| Reports Module                           | 1 Bug     |
+| Global UI/Responsive (Sales Analytics)   | 1 Bug     |
 
-**Total Bugs in This Section: 2**
+**Total Bugs in Sales Analytics Section: 11**
+---
+
+## 🐞 Complete Bug Summary Table (Sales Analytics)
+
+| Bug ID        | Issue Summary                                                      | Severity | Status |
+|---------------|--------------------------------------------------------------------|----------|--------|
+| SA-SKU-001    | Custom date range not working for export                           | High     | Open   |
+| SA-SKU-002    | Total Quantity Sold input UI overflow in filter panel              | Medium   | Open   |
+| SA-UI-003     | Responsive/mobile UI not working on some devices                   | High     | Open   |
+| SA-SP-004     | Store Performance “Last Sale / Date” column cut off                | Medium   | Open   |
+| SA-SP-005     | Store Detail page not loading KPI & chart data                    | High     | Open   |
+| SA-SP-006     | Sales Trend Export button not working on Store Detail page         | Medium   | Open   |
+| SA-SPF-007    | Staff Performance date field accepts more than 4-digit year        | Medium   | Open   |
+| SA-SPF-008    | Staff search chip (X) close button not working                     | Medium   | Open   |
+| SA-SPF-009    | Table View / Chart View toggle not working                         | High     | Open   |
+| SA-TH-010     | Transaction History date fields accept invalid year formats        | Medium   | Open   |
+| SA-TH-011     | Transaction History filter-tag close (X) not working               | High     | Open   |
 
 ---
 
@@ -1700,7 +1721,7 @@ Priority: **High**
 
 ---
 
-## 🪲 Bug Report SA-TH-006: Invalid Date Format Accepted in Transaction History Filters
+## 🪲 Bug Report SA-TH-008: Invalid Date Format Accepted in Transaction History Filters
 
 **1. Bug Title**  
 Transaction History – Date Range Fields Accept Invalid Year Formats
@@ -1740,7 +1761,7 @@ Priority: **High**
 <img width="917" height="380" alt="image" src="https://github.com/user-attachments/assets/6fb48852-b91f-4428-aced-cc06e403c0b9" />
 
 ---
-## 🪲 Bug Report SA-TH-007: Filter Tag Close (X) Button Not Working
+## 🪲 Bug Report SA-TH-009: Filter Tag Close (X) Button Not Working
 
 **1. Bug Title**  
 Transaction History – Applied Filter Tags Cannot Be Removed Using Close (X)
@@ -1779,7 +1800,7 @@ Priority: **High**
 
 ---
 
-## 🪲 Bug X: Store Performance Detail Page Not Loading Data
+## 🪲 Bug  SA-TH-009: Store Performance Detail Page Not Loading Data
 
 **1. Bug Title**  
 Store Performance Details Page Shows Empty Metrics Even When Data Exists in List View
@@ -1820,7 +1841,7 @@ e. Observe that all displayed stats are **0**, and chart section is empty.
 <img width="1526" height="672" alt="image" src="https://github.com/user-attachments/assets/03dd4ee2-66ce-4e1e-bd48-d9afaf7bf965" />
 
 ---
-## 🪲 Bug X: Sales Trend Export Button Not Working on Store Performance Detail Page
+## 🪲 Bug  SA-TH-0010: Sales Trend Export Button Not Working on Store Performance Detail Page
 
 **1. Bug Title**  
 Export Button Not Functioning in Sales Trend Section
@@ -1860,7 +1881,7 @@ f. Observe no action.
 
 ---
 
-## 🪲 Bug X: Reports Not Generated After Selecting Valid Filters
+## 🪲 Bug  SA-TH-011: Reports Not Generated After Selecting Valid Filters
 
 **1. Bug Title**  
 Reports Page Always Shows “No Data Found” Even When Valid Data Exists
