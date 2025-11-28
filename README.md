@@ -1400,3 +1400,310 @@ Priority: **Medium**
 
 ---
 
+
+# SECTION 3: SALES ANALYTICS – SKU PERFORMANCE
+
+This section captures UI and functional defects found under the **Sales Analytics Dashboard → SKU Performance** module.
+
+The issues involve incorrect date range handling, export functionality, and UI layout misalignment within filters.  
+All defects are documented using a standardized bug-reporting structure for consistency and traceability.
+
+---
+
+## 📊 Bug Summary Table
+
+| Bug ID | Title                                                    | Severity | Status |
+|--------|----------------------------------------------------------|----------|--------|
+| SA-SKU-001 | Custom Date Range Not Working for Export              | High     | Open   |
+| SA-SKU-002 | Total Quantity Sold Input Fields Overflow UI Panel    | Medium   | Open   |
+
+**Total Bugs in This Section: 2**
+
+---
+
+# 🪲 **Bug Report SA-SKU-001: Custom Date Range Not Working for Export**
+
+**1. Bug Title**  
+Custom Date Range Not Working for Export
+
+**2. Description**  
+When selecting **Custom** in the **Date Range** dropdown under SKU Performance, the system does **not display** any date input fields (from/to).  
+Because of this, the **Export** button cannot generate custom-range reports.
+
+No calendar pop-up or manual input fields appear.
+
+**3. Steps to Reproduce**  
+a. Navigate to **Sales Analytics Dashboard**.  
+b. Go to **SKU Performance**.  
+c. Click **Date Range** dropdown.  
+d. Select **Custom**.  
+e. Try clicking **Export**.
+
+**4. Expected Result**  
+- From/To date fields should appear.  
+- User should select a valid custom date range.  
+- Export should generate a report based on selected dates.
+
+**5. Actual Result**  
+- No date inputs appear.  
+- Export does nothing for custom range.  
+- System behaves as if Custom was never selected.
+
+**6. Severity & Priority**  
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**  
+- No date selection UI shown after choosing Custom.  
+- Export remains non-functional.
+- <img width="1570" height="238" alt="image" src="https://github.com/user-attachments/assets/2d807eec-f608-4afe-9442-73df3d35073c" />
+
+
+---
+
+# 🪲 **Bug Report SA-SKU-002: Quantity Sold Input Overflowing from Filter Panel**
+
+**1. Bug Title**  
+Total Quantity Sold Input Field Overflowing from Filter UI Panel
+
+**2. Description**  
+In the Filters panel of the SKU Performance page, the **“Total Quantity Sold”** Min–Max input boxes overflow outside the filter container, breaking the layout and causing clipped UI.
+
+**3. Steps to Reproduce**  
+a. Open **Sales Analytics Dashboard**.  
+b. Click **SKU Performance**.  
+c. Scroll to the **Filters** section.  
+d. Observe the **Min–Max** input row under Total Quantity Sold.
+
+**4. Expected Result**  
+- Input fields should remain inside the filter panel.  
+- Proper padding/margin and responsive alignment.
+
+**5. Actual Result**  
+- Max input field overflows outside box.  
+- UI clip visible on right side.
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **Medium**
+
+**7. Evidence**  
+- Screenshot shows Max textbox escaping filter container.
+- <img width="523" height="557" alt="image" src="https://github.com/user-attachments/assets/50cb0f36-dae8-42bc-908b-2e9f6e305e78" />
+
+
+---
+
+# 🪲 Bug Report SA-UI-003: Responsive UI / Mobile Layout Not Working on Some Devices & Browsers
+
+**1. Bug Title**  
+Responsive UI and Mobile Menu Not Working on Certain Devices/Browsers
+
+**2. Description**  
+The responsive mobile layout does not behave consistently across different devices and browsers.  
+On some screens, the **menu (hamburger) doesn’t open**, layouts break, or pages do not adjust properly to mobile/tablet resolutions.
+
+Common issues observed:
+- Hamburger menu not opening  
+- Sidebar overlapping content  
+- Pages not adjusting to mobile width  
+- Filter sections overflowing  
+- Buttons shifting out of screen  
+
+**3. Steps to Reproduce**
+a. Open the Sales Analytics / SKU Performance / Store Performance pages on:  
+   - Smaller Android devices  
+   - Older iPhones  
+   - Chrome Mobile, Firefox Mobile, Brave  
+b. Try opening the **hamburger menu**.  
+c. Resize page or switch orientation to landscape.  
+d. Observe responsive behavior.  
+
+**4. Expected Result**
+- All pages should fully support mobile & tablet resolutions.  
+- Hamburger menu should open on every device.  
+- Elements should auto-adjust without overflow.  
+- Layout should remain visually stable on all major browsers.
+
+**5. Actual Result**
+- Menu does not open on some devices.  
+- Layout breaks / elements overlap.  
+- Filter panel overflows.  
+- UI not responsive in certain browser-device combinations.
+
+**6. Severity & Priority**
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**
+- Tested using multiple devices (Android/iOS)  
+- Browser compatibility issues found  
+- Elements breaking and menu not opening  
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/e44e9042-56d3-400f-92c7-dec5e155a420" />
+
+## 🪲 Bug Report SA-SP-004: Store Performance “Date” Column UI Cut Off / Not Visible
+---
+
+**1. Bug Title**  
+Store Performance “Date / Last Sale” Column Not Fully Visible (UI Cut Off)
+
+**2. Description**  
+In the **Sales Analytics → Store Performance** page, the last column (Last Sale / Date) is partially cut off on the right side.  
+The table overflows horizontally, causing the column to be hidden or only partially visible.
+
+This issue occurs especially on:
+- Smaller laptop screens  
+- Browser windows not fully maximized  
+- Responsive layouts  
+
+**3. Steps to Reproduce**  
+a. Open **Sales Analytics Dashboard**  
+b. Navigate to **Store Performance**  
+c. Scroll horizontally or resize window  
+d. Observe the last column (Last Sale Date)  
+
+**4. Expected Result**  
+- Full table should remain visible within the UI container  
+- Last column should not overflow or become hidden  
+- Table should auto-adjust to available width  
+
+**5. Actual Result**  
+- Last column is partially hidden or cut off  
+- Scroll bar sometimes does not appear  
+- Data becomes unreadable  
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**  
+- UI screenshot: last column partially cut off  
+- Visible overflow of table container
+- <img width="1226" height="491" alt="image" src="https://github.com/user-attachments/assets/d411bfcf-7074-4d36-b998-35af18beaf51" />
+
+
+---
+
+
+## 🪲 Bug Report SA-SPF-005: Date Input Allows More Than 4-Digit Year
+
+**1. Bug Title**  
+Date Range Input Accepts Invalid Year Format (More Than 4 Digits)
+
+**2. Description**  
+In the **Sales Analytics → Staff Performance** filters, the Date Range fields allow users to enter years longer than 4 digits.  
+Example:  
+- `09-09-275759`  
+- `08-08-888888`
+
+This indicates missing validation on the date input fields.
+
+**3. Steps to Reproduce**
+a. Open **Sales Analytics Dashboard**  
+b. Navigate to **Staff Performance**  
+c. Go to the **Date Range** section  
+d. Manually type a year longer than 4 digits (e.g., 08-08-888888)  
+e. Observe that the UI accepts and displays the invalid date
+
+**4. Expected Result**
+- Year should be restricted to **4 digits only**  
+- Input mask should enforce valid date formats (DD-MM-YYYY)  
+- Invalid dates should trigger validation error
+
+**5. Actual Result**
+- Date field accepts years with more than 4 digits  
+- No validation error  
+- Invalid date still processed by the filter
+
+**6. Severity & Priority**
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**
+- Screenshot shows invalid year (08-08-888888) accepted by UI  
+<img width="354" height="300" alt="image" src="https://github.com/user-attachments/assets/197c6039-454f-4c7f-9758-1970a35f1b12" />
+---
+
+## 🪲 Bug Report SA-SPF-006: Search Chip Close (X) Button Not Working
+
+**1. Bug Title**  
+Search Filter Chip Close (X) Icon Not Responding
+
+**2. Description**  
+In the **Staff Performance** page under Sales Analytics, when the user performs a search, a search chip appears (e.g., *Search: "abc"*).  
+The **Close (X)** icon on this search chip does **not clear the search filter**, making it impossible for the user to remove the search query without manually clearing the text box.
+
+**3. Steps to Reproduce**
+a. Open **Sales Analytics Dashboard**  
+b. Navigate to **Staff Performance**  
+c. Type any text into the search input (e.g., "sfdsgfdfdvdsfsd")  
+d. A search chip appears below the input  
+e. Click the **X** icon on the chip  
+f. Observe that it does nothing
+
+**4. Expected Result**
+- Clicking the **X** should immediately clear the search filter  
+- Search chip should disappear  
+- Table data should reset to the default unfiltered state  
+
+**5. Actual Result**
+- X icon does not respond  
+- Search filter remains active  
+- No UI update occurs
+
+**6. Severity & Priority**
+Severity: **Medium**  
+Priority: **Medium**
+
+**7. Evidence**
+- Search chip remains visible after clicking X  
+- Data stays filtered  
+- Screenshot shows the non-functional chip
+<img width="613" height="221" alt="image" src="https://github.com/user-attachments/assets/58fbefcf-587a-48c4-9cd1-b4970ad1f71b" />
+
+---
+## 🪲 Bug Report SA-SPF-007: Table View & Chart View Toggle Not Working
+
+**1. Bug Title**  
+Store Performance – Table View and Chart View Buttons Not Responding
+
+**2. Description**  
+On the **Store Performance** page within the Sales Analytics Dashboard, the **Table View** and **Chart View** toggle buttons do not perform any action when clicked.  
+The page remains stuck on the default view, and users cannot switch between table mode and chart visualization.
+
+**3. Steps to Reproduce**
+a. Navigate to **Sales Analytics Dashboard**  
+b. Click **Store Performance** in the left menu  
+c. Observe the toggle buttons: **Table View** and **Chart View**  
+d. Click **Chart View** → No change  
+e. Click **Table View** again → No change  
+f. The UI does not switch views under any condition
+
+**4. Expected Result**
+- Clicking **Chart View** should switch the UI to a chart-based performance visualization  
+- Clicking **Table View** should return to the table layout  
+- Transition should be smooth and responsive  
+
+**5. Actual Result**
+- Both buttons appear clickable but do nothing  
+- No view change occurs  
+- Page remains stuck on table view  
+
+**6. Severity & Priority**
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**
+- User interface remains static despite clicking view buttons  
+- Screenshot shows Table View selected but no toggle behavior  
+<img width="1229" height="413" alt="image" src="https://github.com/user-attachments/assets/bf87d729-cc28-4783-a6ff-5efdac12ed8f" />
+
+---
+
+
+
+
+
+
+
+
