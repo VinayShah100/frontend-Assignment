@@ -25,14 +25,17 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 ---
 ## 🐞 Bug Count Summary by Module
 
+## 🐞 Bug Count Summary by Module (Updated)
+
 | **Module**                | **Bug Count** |
 |---------------------------|---------------|
 | **SKU Module**            | 5 Bugs        |
-| **Store Module**          | 7 Bugs        |
+| **Store Module**          | 8 Bugs        | 
 | **Supervisor Module**     | 4 Bugs        |
-| **Promodizer Module**     | 8 Bugs        |
+| **Promodizer Module**     | 9 Bugs        | 
 | **Sales & Reporting Module** | 3 Bugs    |
 | **Authentication / Global**  | 2 Bugs    |
+
 
 
 ## 🐞 Complete Bug Summary Table
@@ -52,6 +55,7 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 | STORE-006     | Store phone/email validation missing                         | High         | Open       |
 | STORE-007     | Store fields accept long special-character strings           | Medium       | Open       |
 | STORE-008     | Duplicate city/state values allowed                          | Low          | Open       |
+| STORE-009    | Assigned Promodizers UI breaks for long names                 | Medium       | Open       |
 | SUP-001       | Supervisor fields allow emojis & invalid characters          | High         | Open       |
 | SUP-002       | Duplicate Supervisor email/phone/name allowed                | Critical     | Open       |
 | SUP-003       | Supervisor fields accept excessively long strings            | Medium       | Open       |
@@ -63,6 +67,7 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 | PRO-005       | Promodizer contact field freezes after scrolling             | Medium       | Open       |
 | PRO-006       | Promodizer Employee ID allows invalid formats                | Medium       | Open       |
 | PRO-007       | Promodizer name accepts numeric/symbol values                | Medium       | Open       |
+| PRO-008      | Promodizer long name overflows UI layout                      | Medium       | Open       |
 | SALES-001     | Manual barcode typing limited to 7 digits                    | Medium       | Open       |
 | SALES-002     | Sales Report not generating (No data to export)              | High         | Open       |
 | SALES-003     | Sales Details page shows empty list even with data           | High         | Open       |
@@ -973,4 +978,89 @@ Invalid inputs are accepted everywhere.
 Repeated occurrences across all modules.
 
 ---
+---
+
+## ✅ Bug 30 — Promodizer Name Overflow Breaks UI Layout
+**Bug ID:** PRO-008  
+**Title:** Long Promodizer name overflows outside container  
+**Module:** Promodizer Details (promodizer_details.html)  
+**Severity:** Medium  
+**Priority:** High  
+**Type:** UI Layout / Responsive Bug  
+**Environment:** Windows 10, Chrome 142  
+
+### **Description**
+When a Promodizer has a very long name (100+ characters), the text does not wrap correctly and overflows outside the UI card/container.  
+This breaks the page layout and affects readability of other adjoining sections.
+
+Affected Areas:
+- Promodizer Information (Name field)
+- Employee ID field
+- Store Assignment list cards
+
+### **Steps to Reproduce**
+1. Create a Promodizer with a long name (e.g., 150+ characters).  
+2. Go to **Promodizer → Details** page.  
+3. Observe the Full Name and Employee ID sections.  
+
+### **Expected Result**
+- Long text should wrap within the container.  
+- UI card should auto-adjust height.  
+- Layout should remain aligned and readable.
+
+### **Actual Result**
+- Text extends beyond card boundaries.  
+- Breaks layout into adjacent sections.  
+- Causes UI stretching horizontally.
+
+### **Evidence**
+- Full Name text overflowing out of the container.  
+<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/dc92a20d-d67e-4883-925a-46930f429daa" />
+
+- Assigned store card UI breaking due to long text.
+
+---
+
+## ✅ Bug 31 — Assigned Promodizers UI Breaks with Long Names
+**Bug ID:** STORE-009  
+**Title:** Assigned Promodizers list breaks UI for long names  
+**Module:** Store Details → Assigned Promodizers  
+**Severity:** Medium  
+**Priority:** Medium  
+**Type:** UI Layout / Overflow Bug  
+**Environment:** Windows 10, Chrome 142  
+
+### **Description**
+In the **Assigned Promodizers** section, if a Promodizer has:
+- Long Name  
+- Long Employee ID  
+- Symbols or special characters  
+
+…the card layout breaks.  
+The text overflows outside its container and overlaps with adjacent UI elements, making the list unreadable.
+
+### **Steps to Reproduce**
+1. Assign a Promodizer with a long name (100–200 characters) to any store.  
+2. Go to **Store → Details** page.  
+3. Scroll to **Assigned Promodizers**.  
+4. Observe the UI rendering.
+
+### **Expected Result**
+- Assigned Promodizer cards should wrap content properly.  
+- Long text should not overflow.  
+- Layout should remain aligned within card boundaries.
+
+### **Actual Result**
+- Text goes outside the card boundary.  
+- Layout breaks, causing misalignment of full section.  
+- "Remove" link becomes displaced.
+
+### **Evidence**
+- Assigned Promodizer name stretching past card width.  
+- Employee ID printed outside the container lines.
+- <img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/199c6016-a617-44e3-bc1d-14d6a728c0e6" />
+
+
+---
+
 
