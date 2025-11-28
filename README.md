@@ -1927,6 +1927,180 @@ e. Page shows **No Data Found** even when data is present in Sales History and S
 - URL tested:  
   <img width="976" height="457" alt="image" src="https://github.com/user-attachments/assets/4bc04312-99bb-44c2-b6e9-ebca2bb8cf44" />
 
+  ---
+# SECTION 4: SUPERVISOR PORTAL – ADD PROMODIZER MODULE
+
+This section documents validation and input-handling issues found in the  
+**GTVL Supervisor Portal → Add Promodizer** module.
+
+The defects primarily involve **missing field validations**, allowing invalid, corrupted, or unsafe data to be submitted. This impacts data integrity, reporting accuracy, and employee identity management.
+
+---
+
+## 📊 Bug Summary Table
+
+| Bug ID | Issue Summary                                        | Severity | Status |
+|--------|--------------------------------------------------------|----------|--------|
+| SP-AP-001 | Hamburger menu not closing on some browsers/devices | High     | Open   |
+| SP-AP-002 | Date format accepts invalid year values             | Medium   | Open   |
+| SP-AP-003 | Add Promodizer form accepts invalid inputs          | High     | Open   |
+
+**Total Bugs in This Section: 3**
+
+
+---
+
+# 🪲 Bug Report SUP-RESP-001: Hamburger Menu Not Closing on Some Devices/Browsers
+
+**1. Bug Title**  
+Hamburger Menu Does Not Close on Certain Devices/Browsers
+
+**2. Description**  
+In the **GTVL Supervisor Portal**, the hamburger menu opens correctly but fails to close on certain devices and browsers.  
+The menu remains stuck open, blocking page interaction and preventing navigation.
+
+This issue occurs on:
+- Android Chrome (small/medium devices)  
+- Firefox Mobile  
+- Brave Browser  
+- Older iOS/Safari devices  
+
+The menu does **not close** when:
+- clicking the hamburger icon again  
+- tapping outside the navigation drawer  
+- attempting to swipe-close
+
+**3. Steps to Reproduce**  
+a. Open **GTVL Supervisor Portal** on a mobile or tablet browser  
+b. Tap the **hamburger menu** (☰)  
+c. Try closing it by tapping again or clicking outside  
+d. Observe that the menu does not close  
+
+**4. Expected Result**  
+- Menu should open and close smoothly  
+- Clicking outside the menu should close it  
+- Responsive behavior should work across all common mobile browsers  
+
+**5. Actual Result**  
+- Menu opens but **does not close**  
+- Overlay remains active  
+- User cannot interact with the page  
+- Navigation becomes stuck  
+
+**6. Severity & Priority**  
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**  
+- Screenshot shows menu stuck open on device  
+- Covers entire UI and does not close  
+
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/aa3ba28e-6381-42f3-86cf-d5d40a166738" />
+
+---
+
+## 🪲 Bug Report SP-SH-002: Invalid Date Format Accepted in Sales History Page
+
+**1. Bug Title**  
+Sales History – Date Fields Accept Invalid Year Format (More Than 4 Digits)
+
+**2. Description**  
+On the **Supervisor Portal → Sales History** page, the **From Date** and **To Date** fields accept invalid date formats.  
+Users can manually type a **year longer than 4 digits**, such as:
+
+- `31-03-275760`  
+- `31-03-567890`  
+
+This causes incorrect filtering and breaks date-based reporting.
+
+**3. Steps to Reproduce**  
+a. Login to **GTVL Supervisor Portal**  
+b. Navigate to **Sales History**  
+c. Click inside **From Date** or **To Date** input  
+d. Type an invalid date (e.g., `31-03-275760`)  
+e. Click **Apply Filters**  
+f. Observe that the system accepts the date without validation
+
+**4. Expected Result**  
+- Date input should strictly follow: **DD-MM-YYYY**  
+- Year should only allow **4 digits**  
+- Invalid formats must show validation error  
+- Filters should not execute with invalid dates
+
+**5. Actual Result**  
+- System accepts invalid year values  
+- No validation message  
+- Filtering still attempts to run  
+- UI displays incorrect date format
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**  
+Screenshot shows invalid year accepted in date field:  
+<img width="1221" height="357" alt="image" src="https://github.com/user-attachments/assets/f9ef8c49-d7c0-43b0-99d6-76d22b4c8283" />
+
+---
+## 🪲 Bug Report SP-AP-003: Add Promodizer Form Accepts Invalid & Unrestricted Inputs
+
+**1. Bug Title**  
+Add Promodizer Form – All Input Fields Accept Invalid Characters (No Validation Applied)
+
+**2. Description**  
+On the **Supervisor Portal → Add Promodizer** page, multiple fields accept invalid, unrestricted, or non-sanitized input.  
+The system allows:
+
+- Numbers and symbols in **First Name** / **Last Name**
+- Letters, emojis, or random text in **Employee ID**
+- Special characters and alphabets in **Phone Number**
+- Incorrect formats in **Email Address** (missing '@', domain, etc.)
+
+This indicates missing **client-side and server-side field validation**, allowing users to enter corrupted or unusable data.
+
+**3. Affected Fields**
+
+| Field | Expected | Actual |
+|-------|----------|--------|
+| First Name | Alphabets only | Accepts numbers, emojis, symbols |
+| Last Name | Alphabets only | Accepts any type of characters |
+| Employee ID | Defined pattern (e.g., PRO-2024-007) | Accepts random strings, emojis |
+| Phone Number | Digits only | Accepts letters, symbols |
+| Email Address | Valid email format | Accepts incomplete or invalid emails |
+
+**4. Steps to Reproduce**  
+a. Login to **GTVL Supervisor Portal**  
+b. Navigate to **Add Promodizer**  
+c. Enter invalid values such as:  
+   - First Name → `@@@`, `1234`, `😀😀`  
+   - Employee ID → `ABCXYZ!?`, `😎😎😎`  
+   - Phone Number → `abc123`, `+++++`  
+   - Email → `test@`, `wrongemail`, `abc123`  
+d. Click **Add Promodizer**  
+e. Observe that the form accepts and submits invalid input
+
+**5. Expected Result**  
+- Each field should follow strict validation rules  
+- Form should reject invalid data  
+- User should see proper validation messages (e.g., "Enter a valid email")  
+- Input sanitization must be enforced
+
+**6. Actual Result**  
+- Form accepts **any data** without restriction  
+- No validation errors shown  
+- Invalid data can be saved to the database
+
+**7. Severity & Priority**  
+Severity: **High**  
+Priority: **High**
+
+**8. Evidence**  
+- Screenshot shows Add Promodizer form with unrestricted input behavior  
+- Multiple fields allow invalid formats  
+<img width="1574" height="176" alt="image" src="https://github.com/user-attachments/assets/199be731-15a5-4425-9e9a-c0945c0e3e7b" />
+
+
+
 
 
 
