@@ -1700,6 +1700,218 @@ Priority: **High**
 
 ---
 
+## 🪲 Bug Report SA-TH-006: Invalid Date Format Accepted in Transaction History Filters
+
+**1. Bug Title**  
+Transaction History – Date Range Fields Accept Invalid Year Formats
+
+**2. Description**  
+The **Transaction History** page accepts invalid date formats, especially when the user manually types values.  
+The **Year** section allows more than 4 digits (e.g., *275760*, *777777*), which breaks filtering accuracy and may cause backend errors.
+
+This indicates missing client-side and server-side validation for date inputs.
+
+**3. Steps to Reproduce**
+a. Open **Sales Analytics Dashboard**  
+b. Navigate to **Transaction History**  
+c. Go to **Filters → Date Range**  
+d. Click inside the date input field (From or To date)  
+e. Type a year longer than 4 digits (e.g., 07-07-777777)  
+f. Observe that the system accepts it without validation  
+
+**4. Expected Result**
+- Date fields should strictly follow valid formats: **DD-MM-YYYY**  
+- Year must be restricted to **4 digits only (0000–9999)**  
+- Invalid input should trigger a validation message  
+
+**5. Actual Result**
+- System accepts extremely large year values (e.g., 275760, 777777)  
+- Filters still execute with incorrect date formats  
+- No validation error or restriction shown  
+
+**6. Severity & Priority**
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**
+- User manually entering year: *275760*, *777777*  
+- No validation or error prompts  
+- UI screenshot shows incorrect date being accepted
+<img width="917" height="380" alt="image" src="https://github.com/user-attachments/assets/6fb48852-b91f-4428-aced-cc06e403c0b9" />
+
+---
+## 🪲 Bug Report SA-TH-007: Filter Tag Close (X) Button Not Working
+
+**1. Bug Title**  
+Transaction History – Applied Filter Tags Cannot Be Removed Using Close (X)
+
+**2. Description**  
+In the **Transaction History** page, after applying any filter (Date Range, Stores, Staff, etc.), the system shows filter tags at the top.  
+However, the **Close (X)** button on these tags does not remove the selected filter.
+
+Users are forced to click **Clear All**, as individual filters cannot be removed.
+
+**3. Steps to Reproduce**
+a. Navigate to **Sales Analytics Dashboard → Transaction History**  
+b. Apply any filter (Example: Date Range, Staff, Stores, Search)  
+c. Notice filter tags appear (e.g., *Date: from 275760-03-23*, *Staff: 6 selected*)  
+d. Click the **X** on any tag  
+e. Observe that nothing happens  
+
+**4. Expected Result**
+- Clicking the **X** on a filter tag should immediately remove that specific filter  
+- Page should refresh results accordingly  
+
+**5. Actual Result**
+- X button does not respond  
+- Filter remains active  
+- Users must click **Clear All** to reset all filters  
+
+**6. Severity & Priority**
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**
+- Filter tags visible but cannot be removed  
+- Clicking X produces no UI change  
+- Screenshot shows the tag with non-functioning close button
+<img width="1230" height="193" alt="image" src="https://github.com/user-attachments/assets/e62af6ea-43ab-4902-a019-245c9110cfca" />
+
+---
+
+## 🪲 Bug X: Store Performance Detail Page Not Loading Data
+
+**1. Bug Title**  
+Store Performance Details Page Shows Empty Metrics Even When Data Exists in List View
+
+**2. Description**  
+On the Sales Analytics Dashboard → Store Performance module, the list view displays valid store performance data (quantity sold, transactions, SKUs sold, staff count).  
+However, when clicking on any store to open its **Store Detail Page**, all statistics (Total Quantity Sold, Total Transactions, Unique SKUs Sold, Active Staff) display **0** or blank, and no chart data is loaded.
+
+This indicates that store-level analytics are not being fetched or passed correctly to the detail page.
+
+**3. Steps to Reproduce**  
+a. Open **Sales Analytics Dashboard**.  
+b. Click **Store Performance**.  
+c. Observe values in the table — for example:  
+   - Quantity Sold = 56  
+   - Transactions = 3  
+   - SKUs Sold = 8  
+d. Click on the store → opens **Store Detail Page**.  
+e. Observe that all displayed stats are **0**, and chart section is empty.
+
+**4. Expected Result**  
+- Store detail page should display accurate analytics based on selected store.  
+- Chart and KPIs should load real data (same values shown in list view).  
+
+**5. Actual Result**  
+- All KPIs display **0**.  
+- Sales Trend chart shows no data.  
+- Page loads, but API/data-binding fails.
+
+**6. Severity & Priority**  
+- **Severity:** High  
+- **Priority:** High  
+
+**7. Evidence**  
+- List view shows correct data (e.g., 56 quantity sold).  
+- Detail view shows 0 for all metrics.  
+- Chart blank.  
+<img width="1526" height="672" alt="image" src="https://github.com/user-attachments/assets/03dd4ee2-66ce-4e1e-bd48-d9afaf7bf965" />
+
+---
+## 🪲 Bug X: Sales Trend Export Button Not Working on Store Performance Detail Page
+
+**1. Bug Title**  
+Export Button Not Functioning in Sales Trend Section
+
+**2. Description**  
+On the Store Performance → Store Detail page, the **Export** button located in the Sales Trend section does not perform any action when clicked.  
+There is **no file download**, **no loading state**, and **no visible API call**, indicating either missing functionality or broken event binding.
+
+**3. Steps to Reproduce**  
+a. Open **Sales Analytics Dashboard**.  
+b. Navigate to **Store Performance**.  
+c. Click any store → Open **Store Detail Page**.  
+d. Scroll to the **Sales Trend** section.  
+e. Click the **Export** button (top-right of Sales Trend chart).  
+f. Observe no action.
+
+**4. Expected Result**  
+- Clicking the Export button should download a CSV/Excel/PDF file containing sales trend data.  
+- A loading state or API call should be triggered.  
+- If no data is available, a message like **“No data to export”** should appear.
+
+**5. Actual Result**  
+- Button shows **no response**.  
+- No file is downloaded.  
+- No API call is triggered.  
+- No validation or error message is shown.
+
+**6. Severity & Priority**  
+- **Severity:** Medium  
+- **Priority:** High (Export is a critical analytics function)
+
+**7. Evidence**  
+- Button visible but unresponsive.  
+- Chart loads (even empty), but export functionality does nothing.  
+- Screenshot provided.  
+<img width="1472" height="195" alt="image" src="https://github.com/user-attachments/assets/ac45f488-a4ff-409b-95ff-878b9aabf29d" />
+
+---
+
+## 🪲 Bug X: Reports Not Generated After Selecting Valid Filters
+
+**1. Bug Title**  
+Reports Page Always Shows “No Data Found” Even When Valid Data Exists
+
+**2. Description**  
+When generating reports from the Sales Analytics Dashboard, the system shows:
+
+> **“No Data Found — No sales data matches the selected report criteria.”**
+
+even when valid data exists for the selected date range, stores, and filters.
+
+The report_display.html page loads successfully but **does not fetch or display any report data**, indicating either a missing API connection, incorrect filter mapping, or a broken data-fetch function.
+
+**3. Steps to Reproduce**  
+a. Navigate to **Sales Analytics Dashboard → Reports**  
+b. Configure a report with valid:  
+   - Date range  
+   - Store(s)  
+   - Staff / SKU filters  
+c. Click **Generate Report**  
+d. System redirects to `report_display.html`  
+e. Page shows **No Data Found** even when data is present in Sales History and Store Performance sections.
+
+**4. Expected Result**  
+- System should load and display report data matching the selected filters.  
+- A visual report (tables, charts, or summary metrics) should appear.  
+- Export options should work if data is available.
+
+**5. Actual Result**  
+- Report page always displays **No Data Found**  
+- No data rendering occurs  
+- No API/DB fetch is triggered or data returns empty  
+- User cannot generate or export any reports
+
+**6. Severity & Priority**  
+- **Severity:** High  
+- **Priority:** High  
+(Reporting is a critical analytics feature)
+
+**7. Evidence**  
+- Screenshot shows empty report with “No Data Found”  
+- Data **does exist** in Sales History / Store Detail pages  
+- URL tested:  
+  <img width="976" height="457" alt="image" src="https://github.com/user-attachments/assets/4bc04312-99bb-44c2-b6e9-ebca2bb8cf44" />
+
+
+
+
+
+
+
 
 
 
