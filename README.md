@@ -35,9 +35,9 @@
 
 ### 🟦 **OTHER PORTALS**
 
-- [Section 2 – Promodizer Portal (7 Bugs)](#section-2--promodizer-portal--7-bugs)
-- [Section 3 – Sales Analytics (11 Bugs)](#section-3--sales-analytics--11-bugs)
-- [Section 4 – Supervisor Portal (Add Promodizer) – 3 Bugs](#section-4--supervisor-portal-add-promodizer--3-bugs)
+- [Section 2 – Promodizer Portal (7 Bugs)](#section-2-promodizer-portal--7-bugs)
+- [Section 3 – Sales Analytics (11 Bugs)](#section-3-sales-analytics--11-bugs)
+- [Section 4 – Supervisor Portal (Add Promodizer) – 3 Bugs](#section-4-supervisor-portal--add-promodizer--3-bugs)
 
 ---
 
