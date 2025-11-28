@@ -912,6 +912,8 @@ Long, invalid values are saved.
 
 ### **Evidence**
 List view rows appear stretched or broken.
+<img width="940" height="235" alt="image" src="https://github.com/user-attachments/assets/175df918-2481-4e62-b3e7-869e652037d6" />
+
 
 ---
 
