@@ -31,7 +31,7 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 |---------------------------|---------------|
 | **SKU Module**            | 5 Bugs        |
 | **Store Module**          | 8 Bugs        | 
-| **Supervisor Module**     | 4 Bugs        |
+| **Supervisor Module**     | 5 Bugs        |
 | **Promodizer Module**     | 9 Bugs        | 
 | **Sales & Reporting Module** | 3 Bugs    |
 | **Authentication / Global**  | 2 Bugs    |
@@ -60,6 +60,7 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 | SUP-002       | Duplicate Supervisor email/phone/name allowed                | Critical     | Open       |
 | SUP-003       | Supervisor fields accept excessively long strings            | Medium       | Open       |
 | SUP-004       | Invalid email/phone formats accepted for Supervisors         | High         | Open       |
+| SUP-005   | Missing Back button on Supervisor Details page                   | Medium       | Open       |
 | PRO-001       | Promodizer form accepts emojis & invalid inputs              | High         | Open       |
 | PRO-002       | Duplicate Promodizer email/phone/name allowed                | Critical     | Open       |
 | PRO-003       | Promodizer link icon not working                             | Medium       | Open       |
@@ -1062,5 +1063,47 @@ The text overflows outside its container and overlaps with adjacent UI elements,
 
 
 ---
+
+## ✅ Bug 32 — Missing Back Button on Supervisor Details Page
+**Bug ID:** SUP-005  
+**Title:** Supervisor Details page has no Back button for navigation  
+**Module:** Supervisor Details (supervisor_details.html)  
+**Severity:** Medium  
+**Priority:** Medium  
+**Type:** UI/Navigation Defect  
+**Environment:** Windows 10, Chrome 142  
+**Precondition:** Supervisor record exists and is opened from the Supervisor List  
+
+### **Description**
+The Supervisor Details page does not provide a Back button or navigation link for returning to the Supervisor List.  
+Users are forced to rely on the browser Back button, which is not a recommended UX navigation method and causes inconsistency with other modules.
+
+### **Steps to Reproduce**
+1. Navigate to **Supervisors → Supervisor List**.  
+2. Click on any Supervisor to open the **Details** page.  
+3. Observe the top header and page UI.
+
+### **Expected Result**
+- A Back button (e.g., “← Back to Supervisors List”) should be visible.  
+- Users should be able to navigate back without using the browser’s back button.  
+- Navigation should be consistent with other modules such as Stores, SKUs, and Promodizers.
+
+### **Actual Result**
+- No Back button is present on the Supervisor Details page.  
+- User must use the browser’s Back button to exit the page.  
+- Navigation inconsistency across modules.
+
+### **Impact**
+- Poor user experience and navigation flow.  
+- Users may get stuck, especially on mobile devices where browser back is not always visible.  
+- Inconsistent design across the portal.
+
+### **Evidence**
+- Screenshot shows no Back button in Supervisor Details layout.
+- <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/c7bbf8f7-8eab-46f5-94be-0befd04c8a65" />
+
+
+---
+
 
 
