@@ -33,11 +33,13 @@
 
 ---
 
-### 🟦 **OTHER PORTALS**
+# 📘 Detailed Bug Report Sections  
+Click below to jump to each full bug-report section:
 
-- [Section 2 – Promodizer Portal (7 Bugs)](#section-2-promodizer-portal--7-bugs)
-- [Section 3 – Sales Analytics (11 Bugs)](#section-3-sales-analytics--11-bugs)
-- [Section 4 – Supervisor Portal (Add Promodizer) – 3 Bugs](#section-4-supervisor-portal--add-promodizer--3-bugs)
+- [Section 1 – Management Portal (All Modules)](#section-1--management-portal-all-modules)
+- [Section 2 – Promodizer Portal (Detailed Bug Reports)](#section-2--promodizer-portal--detailed-bug-reports)
+- [Section 3 – Sales Analytics (Detailed Bug Reports)](#section-3--sales-analytics--detailed-bug-reports)
+- [Section 4 – Supervisor Portal – Add Promodizer (Detailed Bug Reports)](#section-4--supervisor-portal--add-promodizer-detailed-bug-reports)
 
 ---
 
@@ -331,6 +333,8 @@ The GTVL Management Portal acts as a **centralized dashboard** for operations ma
 
 
 # 🐞 GTVL Management Portal — Detailed Bug Reports
+## SECTION 1 – MANAGEMENT PORTAL (ALL MODULES)
+
 
 Below are all validated and documented bugs found during manual testing of the GTVL Management Portal.  
 Each bug includes ID, severity, steps, expected vs actual results, and evidence.
