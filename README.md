@@ -1374,7 +1374,9 @@ Users are forced to rely on the browser Back button, which is not a recommended 
 ---
 
 
-## 📘 Section 2: Promodizer Portal – Introduction
+# 📘 Section 2: Promodizer Portal – Introduction
+## SECTION 2 – PROMODIZER PORTAL (DETAILED BUG REPORTS)
+
 
 This section documents all bugs identified within the **Promodizer Portal** of the GTVL Management System.  
 The Promodizer Portal covers daily operations performed by field Promodizers, including:
@@ -1660,6 +1662,8 @@ Priority: **Medium**
 
 
 # SECTION 3: SALES ANALYTICS – SKU PERFORMANCE
+## SECTION 3 – SALES ANALYTICS (DETAILED BUG REPORTS)
+
 
 This section captures UI and functional defects found under the **Sales Analytics Dashboard → SKU Performance** module.
 
@@ -2187,6 +2191,8 @@ e. Page shows **No Data Found** even when data is present in Sales History and S
 
   ---
 # SECTION 4: SUPERVISOR PORTAL – ADD PROMODIZER MODULE
+## SECTION 4 – SUPERVISOR PORTAL – ADD PROMODIZER (DETAILED BUG REPORTS)
+
 
 This section documents validation and input-handling issues found in the  
 **GTVL Supervisor Portal → Add Promodizer** module.
