@@ -1,3 +1,43 @@
+# 📘 Table of Contents
+
+- [GTVL Management Portal – QA & Bug Testing Project](#gtvl-management-portal--qa--bug-testing-project)
+- [About the GTVL Management Portal](#️-about-the-gtvl-management-portal)
+- [Bug Count Summary by Module](#-bug-count-summary-by-module)
+- [Complete Bug Summary Table](#-complete-bug-summary-table)
+
+---
+
+## 🟦 Section 1 — Management Portal (All Modules)
+- [Section 1 Overview](#section-1-overview)
+
+---
+
+## 🟩 Section 2 — Promodizer Portal
+- [Section 2 Introduction](#section-2-promodizer-portal--introduction)
+- [Section 2 Summary](#-section-summary--promodizer-portal-bugs)
+- [Promodizer Portal Bug Reports](#section-2-promodizer-portal)
+
+---
+
+## 🟧 Section 3 — Sales Analytics
+- [Sales Analytics Bug Count Summary](#-bug-count-summary-by-module-sales-analytics)
+- [Sales Analytics Bug Summary Table](#-complete-bug-summary-table-sales-analytics)
+- [Section 3 – SKU Performance](#section-3-sales-analytics--sku-performance)
+
+---
+
+## 🟪 Section 4 — Supervisor Portal (Add Promodizer)
+- [Section 4 Summary](#section-4-supervisor-portal--add-promodizer-module)
+
+---
+
+
+
+---
+
+
+
+
 # GTVL Management Portal – QA & Bug Testing Project
 
 This repository contains all manual testing and bug reporting work done for the **GTVL Management Portal**, an internal ERP-style web application designed for managing SKUs, Stores, Supervisors, and Promodizers.
