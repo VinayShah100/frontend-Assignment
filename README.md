@@ -1103,7 +1103,294 @@ Users are forced to rely on the browser Back button, which is not a recommended 
 - <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/c7bbf8f7-8eab-46f5-94be-0befd04c8a65" />
 
 
+
+
+
+
 ---
 
 
+## 📘 Section 2: Promodizer Portal – Introduction
+
+This section documents all bugs identified within the **Promodizer Portal** of the GTVL Management System.  
+The Promodizer Portal covers daily operations performed by field Promodizers, including:
+
+- Dashboard access  
+- Recording sales  
+- Viewing attendance  
+- Managing assigned stores  
+- Reviewing sales history  
+- Navigating using Back/Home icons  
+- Working with interactive pop-ups and batch items  
+
+The objective of this section is to capture issues that directly affect  
+**usability, navigation flow, data accuracy, and system responsiveness** for Promodizers.  
+All bugs listed here have been validated through manual testing across multiple screens and actions.
+
+Bug IDs in this section start fresh from **BUG-001** and follow a consistent structure for clarity and traceability.
+
+---
+
+## 🧮 Section Summary – Promodizer Portal Bugs
+
+Total Bugs in Promodizer Portal: **7 Bugs**
+
+High Severity:    2  
+Medium Severity:  4  
+Low Severity:     1  
+
+
+| Bug ID | Issue Summary                                        | Severity | Status |
+|--------|--------------------------------------------------------|----------|--------|
+| BUG-001 | Attendance calendar shows wrong date data            | High     | Open   |
+| BUG-002 | Sales History not displaying saved sales records     | High     | Open   |
+| BUG-003 | Attendance pop-up cannot be closed (X & outside click) | Medium   | Open   |
+| BUG-004 | Calendar month/year navigation not working           | Medium   | Open   |
+| BUG-005 | Back arrow needs multiple clicks to respond          | Medium   | Open   |
+| BUG-006 | Home button unresponsive on first click              | Medium   | Open   |
+| BUG-007 | Back & Home icons missing hover feedback             | Low      | Open   |
+
+
+
+# SECTION 2: PROMODIZER PORTAL  
+This section documents all defects identified in the Promodizer Portal, covering UI, functional behavior, navigation, and data consistency issues.  
+Bug IDs restart from **BUG-001** for this module.
+
+---
+## 🪲 Bug 1: Calendar Showing Wrong Date on Selection
+
+**1. Bug Title**  
+Attendance Calendar Displays Incorrect Date Data
+
+**2. Description**  
+When clicking on a date inside the Attendance Calendar (example: **29th**), the system loads attendance data for **28th** instead of 29th.  
+This indicates a date mismatch or off-by-one error in the calendar's data mapping.
+
+**3. Steps to Reproduce**  
+a. Open Promodizer Portal.  
+b. Navigate to **Attendance → Attendance History**.  
+c. Switch to **Calendar View**.  
+d. Click on **29th**.  
+e. Observe that attendance data shown belongs to **28th** instead.
+
+**4. Expected Result**  
+- Selected date should show its correct attendance data.  
+- 29th should display 29th’s attendance record.  
+
+**5. Actual Result**  
+- Clicking 29th opens data for 28th.  
+- Attendance pop-up shows wrong date information.  
+- Calendar is mapping data to the wrong index.
+
+**6. Severity & Priority**  
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**  
+- Date mismatch observed on attendance pop-up.  
+- <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/24dd610f-4cbe-4b8f-92fa-ddecc884a323" />
+
+
+
+
+---
+
+## 🪲 Bug 2: Sales History Not Displaying Saved Sales Records
+
+**1. Bug Title**  
+Sales History Page Not Showing Recorded Sales
+
+**2. Description**  
+After completing a sales submission in the Promodizer Portal, the **Sales History** page does not display any sales entries.  
+When the user selects a specific sales record, the **Sales Detail** page shows the message:
+
+> *“Sales record not found — The requested sales submission could not be found or may have been deleted.”*
+
+This indicates that either:
+- Sales data is not being saved,  
+- Or the Sales History page is not fetching the stored data correctly.
+
+**3. Steps to Reproduce**  
+a. Log in to the **GTVL Promodizer Portal**.  
+b. Navigate to **Record Sales**.  
+c. Scan or manually enter a barcode.  
+d. Add quantity and submit the batch.  
+e. Wait for the success toast confirming the submission.  
+f. Go to **Sales History**.  
+g. Observe that no sales appear in the list.  
+h. Click on any expected record → redirected to Sales Detail shows “Sales record not found.”
+
+**4. Expected Result**  
+- All successfully recorded sales should be saved to the database.  
+- They must appear immediately in **Sales History**.  
+- Clicking a record should open the correct **Sales Detail** page.
+
+**5. Actual Result**  
+- Sales History remains **blank** after submission.  
+- Clicking the supposed sales detail leads to a **“Sales record not found”** error page.  
+- No historical sales are stored or retrieved.
+
+**6. Severity & Priority**  
+Severity: **High**  
+Priority: **High**
+
+**7. Evidence**  
+- **Sales Detail page screenshot** shows error message.  
+- URL tested:
+- <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/033a6e87-ebad-443d-bd06-b8a087588f36" />
+
+  
+
+
+
+
+## 🪲 Bug 3: Attendance History Pop-Up Not Closing
+
+**1. Bug Title**  
+Attendance History Pop-Up Does Not Close on X or Outside Click
+
+**2. Description**  
+Attendance details pop-up stays open and cannot be closed using the Close (X) icon or by clicking outside.
+
+**3. Steps to Reproduce**  
+a. Navigate to Attendance → Calendar View.  
+b. Click any date to open pop-up.  
+c. Click X → no response.  
+d. Click outside → still no response.
+
+**4. Expected Result**  
+- Pop-up should close when clicking X.  
+- Pop-up should close when clicking outside modal.
+
+**5. Actual Result**  
+- Pop-up remains stuck.  
+- User must refresh the page.
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **Medium**
+
+**7. Evidence**  
+- Close button unresponsive  
+- Clicking outside does nothing  
+
+---
+
+## 🪲 Bug 4: Calendar Month/Year Navigation Not Working
+
+**1. Bug Title**  
+Calendar Navigation Arrows Not Responding
+
+**2. Description**  
+Month and year navigation arrows do not change the calendar view.
+
+**3. Steps to Reproduce**  
+a. Go to Attendance → Calendar View.  
+b. Click the left or right arrow.  
+c. Calendar does not move.
+
+**4. Expected Result**  
+Calendar should update to the previous or next month/year.
+
+**5. Actual Result**  
+- No response from arrows  
+- Sometimes changes after repeated clicking
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **Medium**
+
+**7. Evidence**  
+- Calendar stuck on same month
+- <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/0799b0ef-4407-4606-98a8-08367c07d7d9" />
+
+
+---
+
+## 🪲 Bug 5: Back Arrow Not Responding on First Click
+
+**1. Bug Title**  
+Back Arrow Requires Multiple Clicks on Record Sales Page
+
+**2. Description**  
+The Back arrow does not respond on the first click.  
+User must click 2–3 times.
+
+**3. Steps to Reproduce**  
+a. Login to Promodizer Portal.  
+b. Open Record Sales.  
+c. Click Back arrow once → no response.
+
+**4. Expected Result**  
+Back arrow should work on the first click.
+
+**5. Actual Result**  
+- No action on first click  
+- Works after multiple attempts
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**  
+- Back arrow unresponsive  
+
+---
+
+## 🪲 Bug 6: Home Button Not Responding on First Click
+
+**1. Bug Title**  
+Home Button Requires Multiple Clicks to Navigate
+
+**2. Description**  
+Home icon does not work on the first click.
+
+**3. Steps to Reproduce**  
+a. Login to Promodizer Portal.  
+b. Navigate to Record Sales.  
+c. Click Home icon.
+
+**4. Expected Result**  
+Home should open Dashboard instantly.
+
+**5. Actual Result**  
+- No action on first click  
+- Works only after 2–3 clicks
+
+**6. Severity & Priority**  
+Severity: **Medium**  
+Priority: **High**
+
+**7. Evidence**  
+- Home icon unresponsive initially  
+
+
+---
+
+## 🪲 Bug 7: Hover Effect Missing on Back & Home Icons
+
+**1. Bug Title**  
+Back & Home Icons Have No Hover Feedback
+
+**2. Description**  
+On My Stores page, hovering over Back or Home icons shows no visual feedback.
+
+**3. Steps to Reproduce**  
+a. Go to Dashboard → My Stores.  
+b. Hover over Back or Home icons.
+
+**4. Expected Result**  
+Cursor should change to pointer, and icons should have hover styling.
+
+**5. Actual Result**  
+No hover effect → icons look non-clickable.
+
+**6. Severity & Priority**  
+Severity: **Low**  
+Priority: **Medium**
+
+**7. Evidence**  
+- No hover state effect  
+
+---
 
