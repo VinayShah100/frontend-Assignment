@@ -4,8 +4,12 @@
 **PR Number:** #26  
 **Assignment:** SQC Evaluation – Test & Find Everything Wrong With the System  
 
----
 
+
+---
+#this is the Automation Code for this test - https://github.com/VinayShah100/ERP-System-Automation-playwright-.git
+
+---
 # 📘 Table of Contents  
 (Click to jump to section)
 
