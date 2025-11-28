@@ -409,6 +409,8 @@ Invalid values are saved.
 
 ### **Evidence**
 Supervisor List contains entries with emojis & symbols.
+<img width="940" height="143" alt="image" src="https://github.com/user-attachments/assets/eedf55ca-6f5d-4aaf-b86b-d4f7e840970d" />
+
 
 ---
 
@@ -440,6 +442,8 @@ Both records get added successfully.
 
 ### **Evidence**
 Supervisor List shows multiple identical entries.
+<img width="940" height="136" alt="image" src="https://github.com/user-attachments/assets/7097ccc8-401b-4643-9b2c-fa554cb22fbc" />
+
 
 ---
 
