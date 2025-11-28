@@ -1,35 +1,249 @@
-# 📘 Table of Contents
-
-- [GTVL Management Portal – QA & Bug Testing Project](#gtvl-management-portal--qa--bug-testing-project)
-- [About the GTVL Management Portal](#️-about-the-gtvl-management-portal)
-- [Bug Count Summary by Module](#-bug-count-summary-by-module)
-- [Complete Bug Summary Table](#-complete-bug-summary-table)
-
----
-
-## 🟦 Section 1 — Management Portal (All Modules)
-- [Section 1 Overview](#section-1-overview)
+# 📄 Testing Documentation – ERP System  
+**Prepared By:** *Vinay Shah (SQC Candidate)*  
+**Branch:** `VinayShah_Testing_SQC`  
+**PR Number:** #26  
+**Assignment:** SQC Evaluation – Test & Find Everything Wrong With the System  
 
 ---
 
-## 🟩 Section 2 — Promodizer Portal
-- [Section 2 Introduction](#section-2-promodizer-portal--introduction)
-- [Section 2 Summary](#-section-summary--promodizer-portal-bugs)
-- [Promodizer Portal Bug Reports](#section-2-promodizer-portal)
+# 📘 Table of Contents  
+(Click to jump to section)
+
+- [1. Introduction](#-1-introduction)
+- [2. How to Read This Document](#-2-how-to-read-this-document)
+- [Notes](#-notes)
 
 ---
 
-## 🟧 Section 3 — Sales Analytics
-- [Sales Analytics Bug Count Summary](#-bug-count-summary-by-module-sales-analytics)
-- [Sales Analytics Bug Summary Table](#-complete-bug-summary-table-sales-analytics)
-- [Section 3 – SKU Performance](#section-3-sales-analytics--sku-performance)
+### 🔥 **MASTER BUG SUMMARY**
+
+- [Total Bug Count by Section](#-total-bug-count-by-section)
+- [Master List of All Bugs](#-master-list-of-all-bugs-combined)
 
 ---
 
-## 🟪 Section 4 — Supervisor Portal (Add Promodizer)
-- [Section 4 Summary](#section-4-supervisor-portal--add-promodizer-module)
+### 🟥 **MODULE-WISE BUG LISTS**
+
+- [SKU Module – 5 Bugs](#-sku-module--5-bugs)
+- [Store Module – 8 Bugs](#-store-module--8-bugs)
+- [Supervisor Module – 5 Bugs](#-supervisor-module--5-bugs)
+- [Promodizer Module – 9 Bugs](#-promodizer-module--9-bugs)
+- [Sales & Reporting Module – 3 Bugs](#-sales--reporting-module--3-bugs)
+- [Authentication / Global – 2 Bugs](#-authentication--global--2-bugs)
 
 ---
+
+### 🟦 **OTHER PORTALS**
+
+- [Section 2 – Promodizer Portal (7 Bugs)](#section-2--promodizer-portal--7-bugs)
+- [Section 3 – Sales Analytics (11 Bugs)](#section-3--sales-analytics--11-bugs)
+- [Section 4 – Supervisor Portal (Add Promodizer) – 3 Bugs](#section-4--supervisor-portal-add-promodizer--3-bugs)
+
+---
+
+### 🏁 Final Summary
+- [Final Total Bug Count](#-final-total-bug-count)
+
+---
+
+# 🔰 1. Introduction
+
+This document contains all testing work performed on the ERP-System as part of the SQC evaluation.  
+It includes:
+
+- Test scenarios  
+- Test cases  
+- Bug reports  
+- UI/UX observations  
+- Suggestions  
+- Daily logs  
+
+All updates are made to a **single PR and branch** as instructed.
+
+---
+
+# 📘 2. How to Read This Document  
+
+### **Test Scenarios**  
+High-level coverage across modules.
+
+### **Test Cases**  
+Detailed step-by-step validations.
+
+### **Bug Reports**  
+All identified defects with severity & reproducibility.
+
+### **UI/UX Observations**  
+Visual alignment issues, layout breaks, missing validation, etc.
+
+### **Suggestions**  
+Improvement recommendations.
+
+### **Daily Log**  
+Tracking of updates and progress.
+
+---
+
+# 📌 Notes  
+
+- Entire documentation is written by **Vinay Shah** for the SQC evaluation.  
+- Only **one pull request** is maintained.  
+- All findings result from manual testing of the ERP system.
+
+---
+
+# 📊 Total Bug Count by Section
+
+| **Section / Module**                                      | **Bug Count** |
+|-----------------------------------------------------------|---------------|
+| SKU Module                                                | 5             |
+| Store Module                                              | 8             |
+| Supervisor Module                                         | 5             |
+| Promodizer Module                                         | 9             |
+| Sales & Reporting Module                                  | 3             |
+| Authentication / Global Issues                             | 2             |
+| Promodizer Portal (Section 2)                             | 7             |
+| Sales Analytics (Section 3)                               | 11            |
+| Supervisor Portal – Add Promodizer (Section 4)            | 3             |
+
+---
+
+# 🧾 Master List of All Bugs (Combined)
+
+## 🟥 SKU Module – 5 Bugs
+
+| Bug ID   | Issue Summary                                              | Severity | Status |
+|----------|------------------------------------------------------------|----------|--------|
+| SKU-001  | Form accepts emojis, symbols, invalid text                 | High     | Open   |
+| SKU-002  | Edit/View/Delete buttons not responding                    | Critical | Open   |
+| SKU-003  | Duplicate SKU Codes allowed                                | Critical | Open   |
+| SKU-004  | Edit modal requires multiple clicks; delete requires refresh | Medium | Open   |
+| SKU-005  | Action buttons freeze intermittently                       | High     | Open   |
+
+---
+
+## 🟦 Store Module – 8 Bugs
+
+| Bug ID   | Issue Summary                                     | Severity | Status |
+|----------|----------------------------------------------------|----------|--------|
+| STORE-001 | Form accepts emojis & invalid characters          | High     | Open   |
+| STORE-002 | Action buttons not working on desktop             | Critical | Open   |
+| STORE-003 | Duplicate Name/Email/Phone allowed                | High     | Open   |
+| STORE-004 | Contact number accepts only USA format            | Medium   | Open   |
+| STORE-005 | Export icon not working                           | High     | Open   |
+| STORE-006 | Phone/email validation missing                   | High     | Open   |
+| STORE-007 | Form accepts long strings with special chars      | Medium   | Open   |
+| STORE-008 | Duplicate city/state values allowed               | Low      | Open   |
+| STORE-009 | Assigned Promodizer UI breaks with long names     | Medium   | Open   |
+
+---
+
+## 🟪 Supervisor Module – 5 Bugs
+
+| Bug ID    | Issue Summary                                   | Severity | Status |
+|-----------|--------------------------------------------------|----------|--------|
+| SUP-001   | Allows emojis & invalid characters               | High     | Open   |
+| SUP-002   | Duplicate email/phone/name allowed               | Critical | Open   |
+| SUP-003   | Accepts excessively long strings                 | Medium   | Open   |
+| SUP-004   | Invalid email/phone format accepted              | High     | Open   |
+| SUP-005   | Missing Back button on details page              | Medium   | Open   |
+
+---
+
+## 🟧 Promodizer Module – 9 Bugs
+
+| Bug ID   | Issue Summary                                    | Severity | Status |
+|----------|--------------------------------------------------|----------|--------|
+| PRO-001  | Form accepts emojis & invalid input               | High     | Open   |
+| PRO-002  | Duplicate email/phone/name allowed               | Critical | Open   |
+| PRO-003  | Link icon not working                            | Medium   | Open   |
+| PRO-004  | Location icon not working                        | Medium   | Open   |
+| PRO-005  | Contact field freezes after scrolling            | Medium   | Open   |
+| PRO-006  | Employee ID accepts invalid format               | Medium   | Open   |
+| PRO-007  | Name accepts numbers/symbols                      | Medium   | Open   |
+| PRO-008  | Long name UI overflow                            | Medium   | Open   |
+| PRO-009  | Assigned Promodizer UI breaks with long names    | Medium   | Open   |
+
+---
+
+## 🟩 Sales & Reporting Module – 3 Bugs
+
+| Bug ID   | Issue Summary                                    | Severity | Status |
+|----------|--------------------------------------------------|----------|--------|
+| SALES-001 | Manual barcode limited to 7 digits               | Medium   | Open   |
+| SALES-002 | Sales report not generating                      | High     | Open   |
+| SALES-003 | Sales details show empty list even with data     | High     | Open   |
+
+---
+
+## 🟨 Authentication / Global – 2 Bugs
+
+| Bug ID     | Issue Summary                                   | Severity | Status |
+|------------|--------------------------------------------------|----------|--------|
+| AUTH-001   | Logout not clearing session                      | High     | Open   |
+| GLOBAL-001 | Missing unified validation                        | High     | Open   |
+
+---
+
+# 🟦 Section 2 – Promodizer Portal (7 Bugs)
+
+| Bug ID   | Issue Summary                                        | Severity | Status |
+|----------|-------------------------------------------------------|----------|--------|
+| BUG-001  | Attendance calendar shows wrong date                 | High     | Open   |
+| BUG-002  | Sales history not displaying records                 | High     | Open   |
+| BUG-003  | Attendance pop-up cannot be closed                   | Medium   | Open   |
+| BUG-004  | Calendar navigation not working                      | Medium   | Open   |
+| BUG-005  | Back arrow needs multiple clicks                     | Medium   | Open   |
+| BUG-006  | Home button unresponsive on first click              | Medium   | Open   |
+| BUG-007  | Missing hover feedback on icons                      | Low      | Open   |
+
+---
+
+# 🟧 Section 3 – Sales Analytics (11 Bugs)
+
+| Bug ID        | Issue Summary                                      | Severity | Status |
+|---------------|----------------------------------------------------|----------|--------|
+| SA-SKU-001    | Custom date range export not working               | High     | Open   |
+| SA-SKU-002    | Quantity Sold UI overflow                          | Medium   | Open   |
+| SA-UI-003     | Responsive layout broken                           | High     | Open   |
+| SA-SP-004     | Last Sale / Date column cut off                    | Medium   | Open   |
+| SA-SP-005     | KPI & chart load 0 values                          | High     | Open   |
+| SA-SP-006     | Sales Trend Export button not working              | Medium   | Open   |
+| SA-SPF-007    | Date field accepts >4 digit year                   | Medium   | Open   |
+| SA-SPF-008    | Search chip close button not working               | Medium   | Open   |
+| SA-SPF-009    | Table/Chart view toggle broken                     | High     | Open   |
+| SA-TH-010     | Invalid year accepted                              | Medium   | Open   |
+| SA-TH-011     | Filter tag close not working                       | High     | Open   |
+
+---
+
+# 🟪 Section 4 – Supervisor Portal (Add Promodizer) – 3 Bugs
+
+| Bug ID     | Issue Summary                                      | Severity | Status |
+|------------|----------------------------------------------------|----------|--------|
+| SP-AP-001  | Hamburger menu not closing on some devices         | High     | Open   |
+| SP-AP-002  | Date format accepts invalid year values            | Medium   | Open   |
+| SP-AP-003  | Form accepts invalid input                         | High     | Open   |
+
+---
+
+# 🧮 Final Total Bug Count
+
+### ✅ **Total Bugs Identified: 43**
+
+This includes:
+
+- Management Portal  
+- Promodizer Portal  
+- Sales Analytics  
+- Supervisor Portal  
+- Authentication & Global modules  
+
+All bugs are preserved exactly as provided.
+
+---
+
+
 
 
 
